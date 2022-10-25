@@ -7,8 +7,8 @@ const Blog = () => {
         <div>
 <div className='mt-4'>
     {/* <div className='d-lg-flex justify-content-between align-items-center'> */}
-        <h1>WELCOME,</h1>
-    <h3>I hope you find what are you looking for.</h3>
+        <h1 style={{fontSize:"50px", color:"#050E38", fontWeight:"bolder"}} >WELCOME,</h1>
+    <h3 style={{fontSize:"30px", color:"#050E38"}} >I hope you find what are you looking for.</h3>
     
    {/* <img src="https://educator-hub.netlify.app/assets/images/banner-img.png" alt=""></img> */}
 </div>
@@ -47,7 +47,7 @@ const Blog = () => {
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
-      <h3>Thanks for being here!</h3>
+      <h3 style={{ color:"#050E38"}}  >Thanks for being here!</h3>
   </div>
     );
 };
