@@ -5,14 +5,15 @@ import Accordion from 'react-bootstrap/Accordion';
 const Blog = () => {
     return (
         <div>
-<div>
-    <div className='d-lg-flex justify-content-between align-items-center'>
-        <h1>WELCOME!</h1>
-    </div>
+<div className='mt-4'>
+    {/* <div className='d-lg-flex justify-content-between align-items-center'> */}
+        <h1>WELCOME,</h1>
+    <h3>I hope you find what are you looking for.</h3>
+    
    {/* <img src="https://educator-hub.netlify.app/assets/images/banner-img.png" alt=""></img> */}
 </div>
 
-        <Accordion>
+        <Accordion className='m-5'>
         <Accordion.Item eventKey="0">
           <Accordion.Header>
             <h5>1.What is cors?</h5>
@@ -46,6 +47,7 @@ const Blog = () => {
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
+      <h3>Thanks for being here!</h3>
   </div>
     );
 };
