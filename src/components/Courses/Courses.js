@@ -4,6 +4,10 @@ const Courses = () => {
     return (
         <div>
             courses
+            jhyjnjj
+            kjyhjn
+            lkklllllll
+            lllllllllll
         </div>
     );
 };
