@@ -7,8 +7,11 @@ const Courses = () => {
     console.log(courses)
     return (
         <div  >
-            <h3>OUR ONLINE COURSES</h3>
-            <h1>Find The Right Online Course For You</h1>
+            <div className='text-start mt-5'>
+            <h3 style={{color:"#050e38"}} >OUR ONLINE COURSES</h3>
+            <h1  style={{color:"#fd5e2a", fontSize:"50px"}}>Find The Right Online Course For You</h1>  
+            </div>
+
             <img src={'courses.img'} alt=""></img>
             <div className="row g-4" >
             {

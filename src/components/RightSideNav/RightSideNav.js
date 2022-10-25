@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
-
+import './RightSideNav.css'
 const RightSideNav = () => {
     const [courses, setCourses] = useState([]);
 
@@ -11,18 +10,18 @@ const RightSideNav = () => {
         .then(data => setCourses(data))
     },[])
     return (
-        <div>
-           <h4>Click to see course in detail</h4>
-           <hr />
-           <div>
+        <div className='mt-5 sticky-top'>
+           <h3 className='pb-3 mb-4' style={{color:"#050e38", fontWeight:"bolder", borderBottom:"3px solid #fd5e2a"}} >CLICK TO SEE COURSE DETAILS</h3>
+        
+           <div className='courses'>
             {
-                courses.map(course => <h5 key={course.id}>
-                <Link to={`/courses/${course.id}`} className='text-decoration-none text-dark' >{course.name}</Link>
-                </h5> )
+                courses.map(course => <p key={course.id}>
+                <Link to={`/courses/${course.id}`}>{course.name}</Link>
+                </p> )
             }
            </div>
     <Link to='/courses'>
-           <Button variant="outline-danger">Go Back</Button>{' '}
+
 </Link>
         </div>
     );
