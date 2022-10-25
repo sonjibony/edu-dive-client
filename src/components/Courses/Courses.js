@@ -12,8 +12,8 @@ const Courses = () => {
             <h1  style={{color:"#fd5e2a", fontSize:"50px"}}>Find The Right Online Course For You</h1>  
             </div>
 
-            <img src={'courses.img'} alt=""></img>
-            <div className="row g-4" >
+            {/* <img src={'courses.img'} alt=""></img> */}
+            <div className="row g-4 mt-3" >
             {
                 courses.map(course => <CourseCard 
                 key={course.name}

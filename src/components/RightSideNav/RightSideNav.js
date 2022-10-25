@@ -10,7 +10,7 @@ const RightSideNav = () => {
         .then(data => setCourses(data))
     },[])
     return (
-        <div className='mt-5 sticky-top'>
+        <div className='mt-5 sticky-top ms-5'>
            <h3 className='pb-3 mb-4' style={{color:"#050e38", fontWeight:"bolder", borderBottom:"3px solid #fd5e2a"}} >CLICK TO SEE COURSE DETAILS</h3>
         
            <div className='courses'>
