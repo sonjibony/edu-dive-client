@@ -1,24 +1,36 @@
 import React from 'react';
 
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
+import {FaDownload, FaArrowRight } from 'react-icons/fa';
 
 const CourseDetails = () => {
     const courseDetails = useLoaderData();
     return (
         <div>
-          <h1>{courseDetails.name} </h1>
-          <div className='d-lg-flex gap-4 mt-5 mb-4'>
+          <h1 className='mt-4' style={{color:"#fd5e2a"}} >{courseDetails.name} <FaDownload></FaDownload> </h1>
+          <div className='d-flex align-items-center gap-3 mt-5 mb-4'>
           <div>
-          <img src={courseDetails.img}  alt=""></img>
+          <img className='img-fluid' src={courseDetails.img}  alt=""></img>
           </div>
-          <div>
+         <div className='text-start'>
+           
+            <h4 className='mb-3'>Instructor: {courseDetails.instructor}</h4>
+            <h4 className='mb-3'>Price: {courseDetails.price}$</h4>
+            <h4 className='mb-3'>Views: {courseDetails.views}K</h4>
+            <button style={{backgroundColor:"#fd5e2a", fontWeight:"bold"}} className='btn mb-3 text-light '>Get Premium Access</button>
 
-          <h5>Course Description</h5>
-          <hr />
-<p>{courseDetails.description}</p>
-          </div>
+         </div>
          
             </div>
+            <div>
+
+<h4>Course Description</h4>
+<hr />
+<p className='text-justify fs-5'>{courseDetails.description}</p>
+</div>
+<Link to='/courses'>
+<button style={{backgroundColor:"#fd5e2a", fontWeight:"bold"}} className='btn mb-3 text-light '>Go Back <FaArrowRight></FaArrowRight> </button>
+</Link>
         </div>
     );
 };
