@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
 const RightSideNav = () => {
     const [courses, setCourses] = useState([]);
@@ -20,8 +21,9 @@ const RightSideNav = () => {
                 </h5> )
             }
            </div>
-    
-           
+    <Link to='/courses'>
+           <Button variant="outline-danger">Go Back</Button>{' '}
+</Link>
         </div>
     );
 };
