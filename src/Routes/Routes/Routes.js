@@ -5,6 +5,7 @@ import CourseDetails from "../../components/CourseDetails/CourseDetails";
 import Home from "../../components/Home/Home";
 import CoursesLayout from "../../layout/CoursesLayout";
 import Main from "../../layout/Main";
+import ErrorPage from "../../components/ErrorPage/ErrorPage";
 
 export const routes = createBrowserRouter([
     {
@@ -39,7 +40,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/*',
-                element: <div>sorry</div>
+                element: <ErrorPage></ErrorPage>
             },
         ]
     }

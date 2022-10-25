@@ -1,0 +1,45 @@
+/* .error-container img {
+    height: 400px;
+    width: 400px;
+  } */
+  /* .error-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50px;
+    margin-right: 50px;
+  
+    background: fff;
+    padding-top: 70px;
+  }
+  .msg-one {
+    font-size: 50px;
+    font-weight: bolder;
+    color:#67349E;
+  }
+  .msg-two {
+    font-size: 20px;
+    line-height: 35px;
+    padding-bottom: 15px;
+  }
+  .home-btn {
+    padding: 15px 20px;
+    background-color:#B8F95D;
+    border: none;
+    border-radius: 10px;
+
+    margin-bottom: 15px;
+  }
+  @media screen and (max-width: 900px) {
+    .error-container {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: center;
+      margin-left: 50px;
+      margin-right: 50px;
+      background: fff;
+      padding-top: 70px;
+    }
+  } */
