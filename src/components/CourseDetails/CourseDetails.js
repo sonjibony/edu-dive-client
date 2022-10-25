@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from 'react-bootstrap';
+
 import { useLoaderData } from 'react-router-dom';
 
 const CourseDetails = () => {
