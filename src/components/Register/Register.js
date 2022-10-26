@@ -10,7 +10,7 @@ const Register = () => {
     const [error, setError] = useState('');
 
         //using context to get value
- const {providerLogin, createUser} = useContext(AuthContext) ; 
+ const {providerLogin, createUser, updateUserProfile} = useContext(AuthContext) ; 
 
  //creating google provider
  const googleProvider = new GoogleAuthProvider()
@@ -26,14 +26,14 @@ const onGoogleSignIn = () => {
 }
 
 //implementing registration
-const onSubmit = event => {
+const onRegister = event => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
     const photoURL = form.photoURL.value;
     const password = form.password.value;
-    console.log(name,password,email,photoURL)
+    
 
     createUser(email, password)
     .then(result => {
@@ -41,6 +41,7 @@ const onSubmit = event => {
         console.log(user);
         setError('');
         form.reset();
+        onUpdateUserProfile(name,photoURL);
     })
     .catch(error => {
          console.error(error);
@@ -50,14 +51,26 @@ const onSubmit = event => {
 
 }
 
+const onUpdateUserProfile = ( name, photoURL) => {
+    const profile = {
+        displayName: name,
+        photoURL: photoURL,
+    }
+   updateUserProfile(profile)
+   .then (() => {})
+   .catch(error => console.error(error))
+}
+
     return (
-        <Form onSubmit={onSubmit}  className='container text-start mt-3 w-50'>
+        <Form onSubmit={onRegister}  className='container text-start mt-3 w-50'>
             <h1 className='text-center'>Registration</h1>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Full Name</Form.Label>
           <Form.Control className='mb-3' name="name" type="text" placeholder="Enter your full name" />
+
           <Form.Label>Photo URL</Form.Label>
           <Form.Control className='mb-3' name="photoURL" type="text" placeholder="Enter your photo URL" />
+          
           <Form.Label>Email address</Form.Label>
           <Form.Control name="email" type="email" placeholder="Enter email" required />
           

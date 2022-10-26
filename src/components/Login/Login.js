@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react';
 //importing bootstrap components
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 
@@ -13,9 +13,12 @@ const Login = () => {
  //state for error
  const [error, setError] = useState('')
     
- //using context to get value
+ //
  const {providerLogin, signIn} = useContext(AuthContext) ; 
  const navigate = useNavigate();
+ const location =useLocation();
+
+ const from = location.state?.from?.pathname || '/';
 
  //creating google provider
  const googleProvider = new GoogleAuthProvider()
@@ -43,7 +46,7 @@ const onSubmit = event =>{
         console.log(user);
         form.reset();
         setError('');
-        navigate('/');
+        navigate(from, {replace: true});
     })
     .catch(error => {
         console.error(error)
