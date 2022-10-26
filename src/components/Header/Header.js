@@ -5,8 +5,8 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 // react icon
-import { FaUserAlt } from 'react-icons/fa';
-
+import { FaUserAlt, FaMoon, FaSun } from 'react-icons/fa';
+import {Switch} from "antd";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
@@ -14,7 +14,7 @@ const Header = () => {
 
   //using context
   const {user, logOut} = useContext(AuthContext)
-  
+  console.log(user)
   //implementing log out
   const onLogOut = () => {
     logOut()
@@ -75,7 +75,8 @@ const Header = () => {
               
               </Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
-               OFF/ON   </Nav.Link>
+               <FaSun className='text-warning'></FaSun> <Switch/> <FaMoon></FaMoon>
+                </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -4,7 +4,7 @@ import app from '../../firebase/firebase.config';
 
 
 export const AuthContext = createContext();
-const auth = getAuth(app);
+ export const auth = getAuth(app);
 
 const AuthProvider = ({children}) => {
  const [user, setUser] = useState(null);
@@ -13,6 +13,12 @@ const AuthProvider = ({children}) => {
     const providerLogin = (provider) => {
         setLoading(true);
         return signInWithPopup (auth, provider);
+    }
+
+    //github
+    const githubProviderLogin = (provider) => {
+        setLoading(true);
+        return signInWithPopup(auth,provider);
     }
 
     //creating user
@@ -38,6 +44,10 @@ const AuthProvider = ({children}) => {
         return signOut(auth);
     }
 
+    const onSetUser = (userObj) =>{
+        setUser(userObj);
+    }
+
     //setting observer and unsubscribing
     useEffect(() => {
       const unsubscribe =  onAuthStateChanged(auth, (currentUser) =>{
@@ -53,11 +63,14 @@ const AuthProvider = ({children}) => {
     const authInfo = {
         user, 
         loading, 
-        providerLogin, 
+        providerLogin,
+        githubProviderLogin, 
         logOut, 
         createUser, 
         signIn,
-        updateUserProfile
+        updateUserProfile,
+        onSetUser
+
     };
 
 

@@ -3,14 +3,21 @@ import React, { useContext, useState } from 'react';
 //importing bootstrap components
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { auth, AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
 
     const [error, setError] = useState('');
 
         //using context to get value
- const {providerLogin, createUser, updateUserProfile} = useContext(AuthContext) ; 
+ const {providerLogin, createUser, updateUserProfile,onSetUser} = useContext(AuthContext) ; 
+
+ const navigate = useNavigate();
+ const location =useLocation();
+
+ const from = location.state?.from?.pathname || '/';
+
 
  //creating google provider
  const googleProvider = new GoogleAuthProvider()
@@ -41,6 +48,8 @@ const onRegister = event => {
         console.log(user);
         setError('');
         form.reset();
+        navigate(from, {replace: true});
+
         onUpdateUserProfile(name,photoURL);
     })
     .catch(error => {
@@ -57,20 +66,22 @@ const onUpdateUserProfile = ( name, photoURL) => {
         photoURL: photoURL,
     }
    updateUserProfile(profile)
-   .then (() => {})
+   .then ((e) => {
+   onSetUser(auth?.currentUser || {});
+   })
    .catch(error => console.error(error))
 }
 
     return (
         <Form onSubmit={onRegister}  className='container text-start mt-3 w-50'>
             <h1 className='text-center'>Registration</h1>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-1" controlId="formBasicEmail">
           <Form.Label>Full Name</Form.Label>
           <Form.Control className='mb-3' name="name" type="text" placeholder="Enter your full name" />
 
           <Form.Label>Photo URL</Form.Label>
           <Form.Control className='mb-3' name="photoURL" type="text" placeholder="Enter your photo URL" />
-          
+
           <Form.Label>Email address</Form.Label>
           <Form.Control name="email" type="email" placeholder="Enter email" required />
           
@@ -80,8 +91,11 @@ const onUpdateUserProfile = ( name, photoURL) => {
           <Form.Label>Password</Form.Label>
           <Form.Control name="password" type="password" placeholder="Password" required />
         </Form.Group>
-        
-        
+        <p>Already have an account? Then <Link to='/login'>Log in</Link>.</p>
+        <Form.Text className="text-danger mb-2">
+            {error}
+          </Form.Text>
+        <br /> <br />
         <Button className='mb-3' variant="primary" type="submit">
           Register
         </Button> <br />
@@ -90,9 +104,7 @@ const onUpdateUserProfile = ( name, photoURL) => {
           <Button onClick={onGoogleSignIn} className='mb-3' variant="primary" type="submit">
           Google sign up
         </Button> <br />
-        <Form.Text className="text-danger mb-2">
-            {error}
-          </Form.Text>
+        
       </Form>
     );
 };

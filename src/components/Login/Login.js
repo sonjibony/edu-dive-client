@@ -1,9 +1,9 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 //importing bootstrap components
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 
@@ -14,7 +14,7 @@ const Login = () => {
  const [error, setError] = useState('')
     
  //
- const {providerLogin, signIn} = useContext(AuthContext) ; 
+ const {providerLogin, githubProviderLogin, signIn} = useContext(AuthContext) ; 
  const navigate = useNavigate();
  const location =useLocation();
 
@@ -22,6 +22,8 @@ const Login = () => {
 
  //creating google provider
  const googleProvider = new GoogleAuthProvider()
+ //github provider
+ const githubProvider = new  GithubAuthProvider()
 
 //implementing google sign in
 const onGoogleSignIn = () => {
@@ -29,8 +31,25 @@ const onGoogleSignIn = () => {
     .then(result => {
         const user = result.user;
         console.log(user);
+        navigate(from, {replace: true});
+
     })
     .catch(error => console.error(error))
+
+}
+
+//implementing github sign in
+const onGithubSignIn = () =>{
+  githubProviderLogin(githubProvider)
+  .then(result => {
+    const user= result.user;
+    console.log(user);
+    navigate(from, {replace: true});
+
+  })
+  .catch(error => {
+    console.error(error)
+  })
 
 }
 
@@ -66,7 +85,9 @@ const onSubmit = event =>{
           <Form.Label>Password</Form.Label>
           <Form.Control name="password" type="password" placeholder="Password" required />
         </Form.Group>
-        
+        <p>Don't Have an Account? Then <Link to={{pathname:'/register',
+        state:{from}
+      }} >Register </Link> First.</p>
         
         <Button className='mb-3' variant="primary" type="submit">
           Login
@@ -75,6 +96,9 @@ const onSubmit = event =>{
         
           <Button onClick={onGoogleSignIn} className='mb-3' variant="primary" type="submit">
           Google sign up
+        </Button> <br />
+          <Button onClick={onGithubSignIn} className='mb-3' variant="primary" type="submit">
+          Sign In with github
         </Button> <br />
         <Form.Text className="text-danger mb-2">
             {error}
