@@ -3,8 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 import CourseCard from '../CourseCard/CourseCard'
 const Courses = () => {
     const courses = useLoaderData();
-    console.log(courses)
-    console.log(courses)
+
     return (
         <div  >
             <div className='text-start mt-5'>

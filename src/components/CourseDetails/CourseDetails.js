@@ -17,8 +17,9 @@ const CourseDetails = () => {
             <h4 className='mb-3'>Instructor: {courseDetails.instructor}</h4>
             <h4 className='mb-3'>Price: {courseDetails.price}$</h4>
             <h4 className='mb-3'>Views: {courseDetails.views}K</h4>
+            <Link to={`/checkout/${courseDetails.id}`} >
             <button style={{backgroundColor:"#fd5e2a", fontWeight:"bold"}} className='btn mb-3 text-light '>Get Premium Access</button>
-
+</Link>
          </div>
          
             </div>

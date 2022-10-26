@@ -20,9 +20,7 @@ const RightSideNav = () => {
                 </p> )
             }
            </div>
-    <Link to='/courses'>
-
-</Link>
+    
         </div>
     );
 };
