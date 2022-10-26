@@ -1,11 +1,13 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 //importing bootstrap components
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
+
+    const [error, setError] = useState('');
 
         //using context to get value
  const {providerLogin, createUser} = useContext(AuthContext) ; 
@@ -37,8 +39,13 @@ const onSubmit = event => {
     .then(result => {
         const user = result.user;
         console.log(user);
+        setError('');
+        form.reset();
     })
-    .catch(error => console.error(error));
+    .catch(error => {
+         console.error(error);
+         setError(error.message);
+        });
 
 
 }
@@ -71,7 +78,7 @@ const onSubmit = event => {
           Google sign up
         </Button> <br />
         <Form.Text className="text-danger mb-2">
-            error
+            {error}
           </Form.Text>
       </Form>
     );
