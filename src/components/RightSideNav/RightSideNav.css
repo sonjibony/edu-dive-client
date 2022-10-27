@@ -1,11 +1,9 @@
-.courses a{
-text-decoration: none;
-color: black;
-font-size: 20px;
+.courses a {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
 }
 .courses a:hover {
-    color: #fd5e2a;
-    font-weight: bold;
+  color: #fd5e2a;
+  font-weight: bold;
 }
-
-

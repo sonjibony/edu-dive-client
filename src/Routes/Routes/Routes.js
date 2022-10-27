@@ -13,58 +13,62 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Faq from "../../components/Faq/Faq";
 
 export const routes = createBrowserRouter([
-    {
-        path:'/',
-        element: <Main></Main>,
-        children:[
-            {
-                path: '/',
-                element: <Home></Home>
-            },
-            {
-                path: '/courses',
-                element: <CoursesLayout></CoursesLayout>,
-            
-                children:[
-                    {
-                        path: '/courses',
-                        element: <Courses></Courses>,
-                        loader: () => fetch('http://localhost:5000/courses')
-                    },
-                    {
-                        path: '/courses/:id',
-                        element: <CourseDetails></CourseDetails>,
-                        loader: ({params}) => fetch(`http://localhost:5000/courses/${params.id}`)
-                        
-                    },
-                    
-                ]
-            },
-            {
-            path:'/checkout/:id',
-            element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
-            loader: ({params}) => fetch(`http://localhost:5000/checkout/${params.id}`)
-            },
-            {
-                path: '/blog',
-                element: <Blog></Blog>
-            },
-            {
-                path: '/faq',
-                element: <Faq></Faq>
-            },
-            {
-                path: '/login',
-                element: <Login></Login>
-            },
-            {
-                path: '/register',
-                element: <Register></Register>
-            },
-            {
-                path: '/*',
-                element: <ErrorPage></ErrorPage>
-            },
-        ]
-    }
-])
+  {
+    path: "/",
+    element: <Main></Main>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "/courses",
+        element: <CoursesLayout></CoursesLayout>,
+
+        children: [
+          {
+            path: "/courses",
+            element: <Courses></Courses>,
+            loader: () => fetch("http://localhost:5000/courses"),
+          },
+          {
+            path: "/courses/:id",
+            element: <CourseDetails></CourseDetails>,
+            loader: ({ params }) =>
+              fetch(`http://localhost:5000/courses/${params.id}`),
+          },
+        ],
+      },
+      {
+        path: "/checkout/:id",
+        element: (
+          <PrivateRoute>
+            <Checkout></Checkout>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/checkout/${params.id}`),
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+      {
+        path: "/faq",
+        element: <Faq></Faq>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/*",
+        element: <ErrorPage></ErrorPage>,
+      },
+    ],
+  },
+]);
