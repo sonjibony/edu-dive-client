@@ -45,7 +45,7 @@ const Header = () => {
             <Nav.Link> <Link className='text-decoration-none text-dark' to='/courses'>Courses</Link> </Nav.Link>
             <Nav.Link> <Link className='text-decoration-none text-dark' to='/blog'>Blog</Link></Nav.Link>
             <Nav.Link><Link className='text-decoration-none text-dark' to='/faq'>FAQ</Link></Nav.Link>
-            <Nav.Link><Link className='text-decoration-none text-dark' to='/login'>FAQ</Link></Nav.Link>
+           
             
           </Nav>
           <Nav>
