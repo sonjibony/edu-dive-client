@@ -5,7 +5,7 @@ const RightSideNav = () => {
   const [courses, setCourses] = useState([]);
   //using useEffect hook to fetch data
   useEffect(() => {
-    fetch("http://localhost:5000/courses")
+    fetch("https://edu-dive-server.vercel.app/courses")
       .then((res) => res.json())
       .then((data) => setCourses(data));
   }, []);
