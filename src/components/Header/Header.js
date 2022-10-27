@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 // react icon
-import { FaUserAlt, FaMoon, FaSun } from "react-icons/fa";
+import { FaMoon, FaSun } from "react-icons/fa";
 //toggle button
 import { Switch } from "antd";
 
@@ -80,7 +80,10 @@ const Header = () => {
                       src={user?.photoURL}
                     ></Image>
                   ) : (
-                    <FaUserAlt title={user?.displayName}></FaUserAlt>
+                    <Image 
+                    style={{ height: "30px", objectFit: "cover" }}
+                    roundedCircle
+                    src='https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png' title={user?.displayName}></Image>
                   )}
                   <button onClick={onLogOut} className="btn">
                     Log Out
