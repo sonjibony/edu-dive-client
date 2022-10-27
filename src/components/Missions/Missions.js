@@ -4,11 +4,11 @@ const Missions = () => {
     return (
         
           
-          <div className='d-flex flex-sm-column flex-lg-row align-items-center mt-5 mb-5 text-light text-start ' style={{backgroundColor:"#050e38"}}>
+          <div className='d-flex flex-sm-column flex-lg-row  align-items-center justify-content-center mt-5 mb-5 text-light text-start ' style={{backgroundColor:"#050e38"}}>
             < div className='p-5 w-75  '>
             <h5 className='text-white'>CORE FEATURES</h5>
           <h1  style={{color:"#fd5e2a"}} >See What Our Missions Are</h1>
-          <div className='d-flex align-items-center gap-3 mb-4 mt-4'>
+          <div className='d-flex flex-wrap align-items-center gap-3 mb-4 mt-4'>
             <div>
             <img src="https://cdn-icons-png.flaticon.com/512/327/327131.png" alt=""  style={{height:"70px"}}></img>
 
@@ -20,7 +20,7 @@ const Missions = () => {
             </div>
             
           </div>
-          <div className='d-flex align-items-center gap-3 mb-4'>
+          <div className='d-flex flex-wrap align-items-center gap-3 mb-4'>
             <div>
             <img src="https://cdn-icons-png.flaticon.com/512/3200/3200651.png" alt=""  style={{height:"70px"}}></img>
  
@@ -30,7 +30,7 @@ const Missions = () => {
             <p>You will find us giving services 24 hours. Our mentors will always be there for you.</p> 
             </div>
           </div>
-          <div className='d-flex align-items-center gap-3 mb-4'>
+          <div className='d-flex flex-wrap align-items-center gap-3 mb-4'>
             <div>
                 <img src="https://cdn-icons-png.flaticon.com/512/3195/3195496.png" alt=""  style={{height:"70px"}}></img>
             </div>
