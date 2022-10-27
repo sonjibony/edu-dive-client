@@ -60,7 +60,7 @@ const Missions = () => {
           </div>
         </div>
       </div>
-      <div className="w-50 me-4 mb-4 ">
+      <div className="w-50 me-4 mb-4 ps-5 pb-2">
         <img
           src="https://educator-hub.netlify.app/assets/images/coure-features-img.jpg"
           className="img-fluid rounded"
