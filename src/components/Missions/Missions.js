@@ -36,7 +36,7 @@ const Missions = () => {
             ></img>
           </div>
           <div>
-            <h5 className="text-white">24x7 Program</h5>
+            <h5 className="text-white">24x7 Active</h5>
             <p>
               You will find us giving services 24 hours. Our mentors will always
               be there for you.
