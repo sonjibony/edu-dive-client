@@ -55,7 +55,7 @@ const Missions = () => {
             <h5 className="text-white"> Best Online Class</h5>
             <p>
               We can assure you that our courses will not disappoint you. We
-              offer the best we can give.{" "}
+              offer the best, we can give.{" "}
             </p>
           </div>
         </div>
