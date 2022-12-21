@@ -111,10 +111,10 @@ const Header = () => {
             {/* --------
               toggle button
                -----------*/}
-            <Nav.Link eventKey={2} href="#memes">
+            {/* <Nav.Link eventKey={2} href="#memes">
               <FaSun className="text-warning"></FaSun> <Switch />{" "}
               <FaMoon></FaMoon>
-            </Nav.Link>
+            </Nav.Link> */}
           </Nav>
         </Navbar.Collapse>
       </Container>
