@@ -15,7 +15,7 @@ const CourseCard = ({ course }) => {
         <Card.Body>
           <Card.Img variant="top" src={img} />
           <Card.Title className="mt-3 mb-3">
-            <h3> {name}</h3>
+            <h5> {name}</h5>
           </Card.Title>
           <hr
             style={{
@@ -26,16 +26,16 @@ const CourseCard = ({ course }) => {
           />
 
           <div className="d-flex justify-content-evenly">
-            <h5>
+            <h6>
               {" "}
               <FaStar className="text-warning"></FaStar> {ratings}
-            </h5>
+            </h6>
 
-            <h5>
+            <h6>
               {" "}
               <FaEye></FaEye> {views}k
-            </h5>
-            <h5 style={{ color: "#fd5e2a" }}>Price: ${price}</h5>
+            </h6>
+            <h6 style={{ color: "#fd5e2a" }}>Price: ${price}</h6>
           </div>
         </Card.Body>
       </Card>

@@ -41,9 +41,9 @@ const CourseDetails = () => {
               <img className="img-fluid" src={courseDetails.img} alt=""></img>
             </div>
             <div className="text-start">
-              <h4 className="mb-3">Instructor: {courseDetails.instructor}</h4>
-              <h4 className="mb-3">Price: {courseDetails.price}$</h4>
-              <h4 className="mb-3">Views: {courseDetails.views}K</h4>
+              <h5 className="mb-3">Instructor: {courseDetails.instructor}</h5>
+              <h5 className="mb-3">Price: {courseDetails.price}$</h5>
+              <h5 className="mb-3">Views: {courseDetails.views}K</h5>
               <Link to={`/checkout/${courseDetails.id}`}>
                 <button
                   style={{ backgroundColor: "#fd5e2a", fontWeight: "bold" }}

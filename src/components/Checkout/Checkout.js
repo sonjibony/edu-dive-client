@@ -1,6 +1,7 @@
 import React from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import {  Link, useLoaderData } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
+import { Button, Form } from "react-bootstrap";
 
 const Checkout = () => {
   //using loader to fetch api
@@ -41,9 +42,9 @@ const Checkout = () => {
           alt=""
         ></img>
       </div>
-      <h1>Purchasing Information</h1>
+      <h3>Purchasing Information</h3>
       <hr />
-      <div className="d-flex flex-wrap justify-content-center gap-5">
+      {/* <div className="d-flex flex-wrap justify-content-center gap-5">
         <p
           className="text-start text-muted fs-5 "
           style={{
@@ -64,8 +65,8 @@ const Checkout = () => {
         >
           Last Name
         </p>
-      </div>
-      <div className="d-flex flex-wrap justify-content-center gap-5">
+      </div> */}
+      {/* <div className="d-flex flex-wrap justify-content-center gap-5">
         <p
           className="text-start text-muted fs-5"
           style={{
@@ -86,24 +87,40 @@ const Checkout = () => {
         >
           Phone Number
         </p>
-      </div>
+      </div> */}
       <div>
-        <h3>Payment Methods -</h3>
-        <input type="checkbox" name="checkbox" id="" />
-        <label className="fs-5 ms-2">Credit Card</label>
-        <br /> <br />
-        <input type="checkbox" name="checkbox" id="" />
-        <label className="fs-5 ms-2">Debit Card</label>
-        <br /> <br />
-        <input type="checkbox" name="checkbox" id="" />
-        <label className="fs-5 ms-2">Mobile payment</label>
-      </div>
-      <button
-        style={{ backgroundColor: "#fd5e2a", fontWeight: "bold" }}
-        className="btn mb-3 mt-3 text-light "
-      >
+      <Form>
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Control style={{border:"0px", borderRadius:"0px", borderBottom:"1px solid grey"}} type="text" placeholder="Enter you name" />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Control style={{border:"0px", borderRadius:"0px", borderBottom:"1px solid grey"}} type="email" placeholder="Enter your email" />
+       
+      </Form.Group>
+
+      
+
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Control style={{border:"0px", borderRadius:"0px", borderBottom:"1px solid grey"}} type="text" placeholder="Enter you mobile number" />
+      </Form.Group>
+      <h4>Choose Payment Method- </h4>
+      <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        <Form.Check type="checkbox" label="Credit Card" />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        <Form.Check type="checkbox" label="Debit Card" />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        <Form.Check type="checkbox" label="Mobile Payment" />
+      </Form.Group>
+      <button  style={{ backgroundColor: "#fd5e2a", fontWeight: "bold" }}
+        className="btn mb-3 mt-3 text-light "  type="submit">
         Continue<FaArrowRight></FaArrowRight>{" "}
       </button>
+    </Form>
+
+      </div>
+
     </div>
   );
 };
